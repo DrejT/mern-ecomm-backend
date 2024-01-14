@@ -17,7 +17,7 @@ const sessionOptions = {
   cookie: {
     maxAge: 1000 * 86400 * 3,
     httpOnly: true,
-    secure: false,
+    secure: true,
   },
   resave: false,
   saveUninitialized: false,
