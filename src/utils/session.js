@@ -16,8 +16,8 @@ const sessionOptions = {
   sameSite: "lax",
   cookie: {
     maxAge: 1000 * 86400 * 3,
-    httpOnly: false,
-    secure: true,
+    httpOnly: true,
+    secure: false,
   },
   resave: false,
   saveUninitialized: false,
@@ -71,5 +71,5 @@ module.exports = {
   destroySession,
   authorizeUserSession,
   revalidateUserSession,
-  authorizeAdminSession
+  authorizeAdminSession,
 };
