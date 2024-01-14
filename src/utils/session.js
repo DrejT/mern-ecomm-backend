@@ -37,6 +37,7 @@ async function authorizeUserSession(req, res, next) {
 
 async function revalidateUserSession(req, res, next) {
   try {
+    console.log("session is", req.session);
     if (req.session.user) {
       console.log(req.session);
       return res.status(200).send(req.session.user);
