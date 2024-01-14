@@ -13,7 +13,7 @@ const sessionOptions = {
   secret: process.env.SESSION_ID_SECRET,
   store: redisStore,
   name: CookieName,
-  sameSite: "none",
+  sameSite: "lax",
   cookie: {
     maxAge: 1000 * 86400 * 3,
     httpOnly: true,
