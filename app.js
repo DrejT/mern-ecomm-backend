@@ -79,6 +79,8 @@ app.use(async (err, req, res, next) => {
 });
 
 // start server
-app.listen(process.env.PORT, () =>
+const server = app.listen(process.env.PORT, () =>
   console.log(`server started on ${process.env.PORT}`)
 );
+
+server.timeout = 30000;
