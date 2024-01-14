@@ -16,8 +16,8 @@ const sessionOptions = {
   sameSite: "lax",
   cookie: {
     maxAge: 1000 * 86400 * 3,
-    httpOnly: true,
-    secure: false,
+    httpOnly: false,
+    secure: true,
   },
   resave: false,
   saveUninitialized: false,
