@@ -40,6 +40,7 @@ async function revalidateUserSession(req, res, next) {
     if (req.session.user) {
       return res.status(200).send(req.session.user);
     }
+    res.status(200).send("guest user");
   } catch (error) {
     next(error);
   }
