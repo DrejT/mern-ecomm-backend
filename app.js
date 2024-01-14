@@ -26,7 +26,6 @@ app.use(express.json());
 const corsOptions = {
   origin: process.env.DOMAIN_NAME,
   credentials: true,
-  preflightContinue:true,
 };
 app.use(helmet());
 app.use(cors(corsOptions));
