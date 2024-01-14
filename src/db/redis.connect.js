@@ -2,7 +2,16 @@ require("dotenv").config();
 const Redis = require("ioredis");
 
 const client = new Redis(
-  `rediss://default:${process.env.REDIS_PASSWORD}@eu2-tops-quagga-31391.upstash.io:31391`
+  `rediss://default:${process.env.REDIS_PASSWORD}@eu2-tops-quagga-31391.upstash.io:31391`,
+  {
+    reconnectOnError(err) {
+      // const targetError = "READONLY";
+      if (err.message) {
+        // Only reconnect when the error contains "READONLY"
+        return true; // or `return 1;`
+      }
+    },
+  }
 );
 
 client
