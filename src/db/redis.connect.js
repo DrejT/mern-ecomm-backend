@@ -2,7 +2,8 @@ require("dotenv").config();
 const redis = require("redis");
 
 const client = redis.createClient({
-	url:`rediss://default:${process.env.REDIS_PASSWORD}@eu2-tops-quagga-31391.upstash.io:31391`
+  url: `rediss://default:${process.env.REDIS_PASSWORD}@eu2-tops-quagga-31391.upstash.io:31391`,
+  pingInterval: 1000,
 });
 
 (async () => {
