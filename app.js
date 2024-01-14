@@ -22,14 +22,7 @@ const { revalidateUserSession } = require("./src/utils/session");
 // express config
 const app = express();
 app.use(express.json());
-app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", process.env.DOMAIN_NAME);
-  // res.header(
-  //   "Access-Control-Allow-Headers",
-  //   "Origin, X-Requested-With, Content-Type, Accept"
-  // );
-  next();
-});
+
 const corsOptions = {
   origin: process.env.DOMAIN_NAME,
   credentials: true,
@@ -39,6 +32,13 @@ app.use(cors(corsOptions));
 app.use(createSession);
 app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: true }));
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", process.env.DOMAIN_NAME);
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
+  res.header("Access-Control-Allow-Headers", "Content-Type");
+  res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+  next();
+});
 
 // routes config
 app.get("/", async (req, res) => {
