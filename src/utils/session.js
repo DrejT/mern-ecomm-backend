@@ -18,7 +18,7 @@ const sessionOptions = {
     domain: process.env.DOMAIN_NAME,
     maxAge: 1000 * 86400 * 3,
     httpOnly: true,
-    // secure: true,
+    secure: true,
   },
   resave: false,
   saveUninitialized: false,
