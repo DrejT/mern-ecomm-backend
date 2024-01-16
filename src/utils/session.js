@@ -13,12 +13,12 @@ const sessionOptions = {
   secret: process.env.SESSION_ID_SECRET,
   store: redisStore,
   name: CookieName,
-  sameSite: "none",
+  // sameSite: "none",
   cookie: {
     domain: process.env.DOMAIN_NAME,
     maxAge: 1000 * 86400 * 3,
     httpOnly: true,
-    secure: true,
+    // secure: true,
   },
   resave: false,
   saveUninitialized: false,
@@ -39,20 +39,10 @@ async function authorizeUserSession(req, res, next) {
 async function revalidateUserSession(req, res, next) {
   try {
     console.log("session is", req.session);
-    await req.session.reload();
-    console.log("reloaded", req.session);
-    await redisStore.get(req.session.id, (err, session) => {
-      try {
-        console.log("callback session", session);
-      } catch (error) {
-        console.log(error);
-      }
-    });
-    console.log("get session", req.session);
     if (req.session.user) {
       return res.status(200).send(req.session.user);
     } else {
-      return res.status(204).send("guest user");
+      return res.status(404);
     }
   } catch (error) {
     next(error);
