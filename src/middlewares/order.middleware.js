@@ -16,6 +16,7 @@ async function validateOrderCreateSchema(req, res, next) {
 
 async function validateOrderGetSchema(req, res, next) {
   try {
+    console.log("order route session", req.session);
     const result = await orderGetSchema.validateAsync(req.session.user.id);
     req.result = result;
     next();
