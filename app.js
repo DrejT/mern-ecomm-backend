@@ -27,7 +27,7 @@ const corsOptions = {
   origin: process.env.DOMAIN_NAME,
   credentials: true,
 };
-// app.use(helmet());
+app.use(helmet());
 // app.use(cors(corsOptions));
 app.use(createSession);
 app.use(morgan("dev"));
