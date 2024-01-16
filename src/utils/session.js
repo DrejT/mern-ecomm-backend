@@ -39,11 +39,13 @@ async function authorizeUserSession(req, res, next) {
 async function revalidateUserSession(req, res, next) {
   try {
     console.log("session is", req.session);
+    req.session.reload();
+    console.log("reloaded", req.session);
     if (req.session.user) {
-      console.log(req.session);
       return res.status(200).send(req.session.user);
+    } else {
+      return res.status(204).send("guest user");
     }
-    res.status(200).send("guest user");
   } catch (error) {
     next(error);
   }
