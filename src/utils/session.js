@@ -19,7 +19,7 @@ const sessionOptions = {
     maxAge: 1000 * 86400 * 3,
     httpOnly: true,
     secure: true,
-    path: `${process.env.DOMAIN_NAME}/`,
+    path: "/",
   },
   resave: false,
   saveUninitialized: false,
