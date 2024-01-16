@@ -45,6 +45,7 @@ async function getUserById(req, res, next) {
 
 async function login(req, res, next) {
   try {
+    console.log("logged in as", req.session);
     const user = await UserModel.findOne({ username: req.result.username });
     if (!user) {
       throw createError.NotFound("user is not registered");
@@ -62,7 +63,6 @@ async function login(req, res, next) {
       stores: stores,
     };
     req.session.message = "login successful";
-    console.log("logged in as", req.session);
     res.status(200).send(req.session);
   } catch (error) {
     next(error);
