@@ -17,7 +17,7 @@ const sessionOptions = {
   cookie: {
     domain: process.env.DOMAIN_NAME,
     maxAge: 1000 * 86400 * 3,
-    // httpOnly: true,
+    httpOnly: true,
     secure: true,
   },
   resave: false,
