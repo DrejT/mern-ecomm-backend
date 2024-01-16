@@ -39,8 +39,12 @@ async function authorizeUserSession(req, res, next) {
 async function revalidateUserSession(req, res, next) {
   try {
     console.log("session is", req.session);
-    req.session.reload();
+    await req.session.reload();
     console.log("reloaded", req.session);
+    await redisStore.get(req.session.id, (err, session) =>
+      console.log("callback session", session)
+    );
+    console.log("get session", req.session);
     if (req.session.user) {
       return res.status(200).send(req.session.user);
     } else {
