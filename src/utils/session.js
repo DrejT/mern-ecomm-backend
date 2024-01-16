@@ -15,11 +15,10 @@ const sessionOptions = {
   name: CookieName,
   sameSite: "none",
   cookie: {
-    domain: process.env.DOMAIN_NAME,
     maxAge: 1000 * 86400 * 3,
     httpOnly: true,
     secure: true,
-    path: `/`,
+    path: `${process.env.DOMAIN_NAME}/`,
   },
   resave: false,
   saveUninitialized: false,
