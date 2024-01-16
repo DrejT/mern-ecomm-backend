@@ -15,7 +15,7 @@ const sessionOptions = {
   name: CookieName,
   sameSite: "none",
   cookie: {
-    domain: ".vercel.com",
+    domain: ".vercel.app",
     maxAge: 1000 * 86400 * 3,
     httpOnly: true,
     secure: true,
