@@ -15,11 +15,11 @@ const sessionOptions = {
   name: CookieName,
   sameSite: "none",
   cookie: {
-    domain: ".mern-ecommerce-drejt.vercel.app",
+    //domain: ".mern-ecommerce-drejt.vercel.app",
     maxAge: 1000 * 86400 * 3,
     httpOnly: true,
     secure: true,
-    path: "/",
+    //path: "/",
   },
   resave: false,
   saveUninitialized: false,
