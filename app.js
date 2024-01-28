@@ -24,7 +24,7 @@ const app = express();
 app.use(express.json());
 
 const corsOptions = {
-  origin: "https://mern-ecommerce-drejt.vercel.app", //process.env.DOMAIN_NAME,
+  origin: process.env.DOMAIN_NAME,
   credentials: true,
 };
 app.use(helmet());
