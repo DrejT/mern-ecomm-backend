@@ -45,17 +45,7 @@ app.use(function (req, res, next) {
 
 // routes config
 app.get("/", async (req, res) => {
-  // console.log(req.session);
-  console.log(req.cookies);
   res.send("hello world");
-});
-app.post("/upload", upload.single("itemImage"), async (req, res, next) => {
-  try {
-    console.log(req.file);
-    next();
-  } catch (error) {
-    console.log(error);
-  }
 });
 
 app.use("/session", revalidateUserSession);
